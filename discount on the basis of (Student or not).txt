@@ -1,0 +1,60 @@
+//Accept the price from user give discount on the basis of (Student or not)
+
+#include<stdio.h>
+
+int MyFun_student(int );
+int MyFun_NOt_student(int);
+void main()
+{
+	int choice;
+	printf("\nAre you a student?\n");
+	printf("\nIf Yes please press-1");
+	printf("\nIf No please press-2\n\n");
+	scanf("%d",&choice);
+	if(choice==1)
+	{
+		int x,price;
+	printf("\nEnter the price of item :");
+	scanf("%d",&price);
+	x=MyFun_student(price);
+	printf("Amount You have to pay : %d",x);
+	}
+	else
+	if(choice==2)
+	{
+	int y,price;
+    printf("\nEnter the price of item :");
+	scanf("%d",&price);
+	y=MyFun_NOt_student(price);
+	printf("Amount You have to pay : %d",y);
+	}
+	else{printf("Invalid Choice");
+	}
+}
+int MyFun_student(int price)
+{
+	int AmountToPay,Discount;
+	if(price>=500)
+		{
+			Discount=(price*20)/100;	
+		}
+		else
+		{
+			Discount=(price*10)/100;
+		}
+		AmountToPay=price-Discount;
+	return AmountToPay;
+}
+int MyFun_NOt_student(int price)
+{
+	if(price>=600)
+		{int AmountToPay,Discount;
+			Discount=(price*15)/100;
+			AmountToPay=price-Discount;
+			return AmountToPay;
+		}
+		else
+		{
+			return price;
+		}
+}
